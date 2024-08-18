@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/views/Login/login_view.dart';
 
 class InitView extends StatelessWidget {
   const InitView({super.key});
@@ -80,6 +81,12 @@ class InitView extends StatelessWidget {
                         borderRadius: BorderRadius.all(Radius.circular(20)),
                         color: Color(0xFF000000)),
                     child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const LoginView()));
+                      },
                       child: Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 10),
                         child: Row(
