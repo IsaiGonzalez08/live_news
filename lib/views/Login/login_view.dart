@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:news_app/views/Register/register_view.dart';
 import 'package:news_app/widgets/custom_text_form.dart';
 
 class LoginView extends StatelessWidget {
@@ -10,7 +11,7 @@ class LoginView extends StatelessWidget {
       body: SingleChildScrollView(
         child: Container(
           width: double.infinity,
-          height: MediaQuery.of(context).size.height, // Asegura que el contenedor tenga la altura de la pantalla
+          height: MediaQuery.of(context).size.height,
           decoration: const BoxDecoration(
             color: Color(0xFFFFFFFF),
             image: DecorationImage(
@@ -92,6 +93,7 @@ class LoginView extends StatelessWidget {
                             const CustomTextFormField(
                               labelText: 'Your e-mail',
                               hintText: 'example@correo.com',
+                              width: double.infinity,
                             ),
                             const SizedBox(
                               height: 20,
@@ -99,6 +101,7 @@ class LoginView extends StatelessWidget {
                             const CustomTextFormField(
                               labelText: 'Your password',
                               hintText: 'min. 8 caracters',
+                              width: double.infinity,
                             ),
                             const SizedBox(
                               height: 20,
@@ -151,9 +154,8 @@ class LoginView extends StatelessWidget {
                               style: ButtonStyle(
                                 minimumSize: const WidgetStatePropertyAll(
                                     Size(double.infinity, 45)),
-                                backgroundColor:
-                                    const WidgetStatePropertyAll(
-                                        Color(0xFFFFFFFF)),
+                                backgroundColor: const WidgetStatePropertyAll(
+                                    Color(0xFFFFFFFF)),
                                 shape: WidgetStateProperty.all<
                                     RoundedRectangleBorder>(
                                   RoundedRectangleBorder(
@@ -182,9 +184,8 @@ class LoginView extends StatelessWidget {
                               style: ButtonStyle(
                                 minimumSize: const WidgetStatePropertyAll(
                                     Size(double.infinity, 45)),
-                                backgroundColor:
-                                    const WidgetStatePropertyAll(
-                                        Color(0xFFFFFFFF)),
+                                backgroundColor: const WidgetStatePropertyAll(
+                                    Color(0xFFFFFFFF)),
                                 shape: WidgetStateProperty.all<
                                     RoundedRectangleBorder>(
                                   RoundedRectangleBorder(
@@ -211,20 +212,24 @@ class LoginView extends StatelessWidget {
                     ),
                   ],
                 ),
-                Container(), // Este Container está vacío, podrías eliminarlo si no es necesario
+                Container(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     const Text(
                       'Don’t have an account?',
-                      style:
-                          TextStyle(color: Color(0xFF797979), fontSize: 12),
+                      style: TextStyle(color: Color(0xFF797979), fontSize: 12),
                     ),
                     const SizedBox(
                       width: 2,
                     ),
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const RegisterView()));
+                      },
                       child: const Text(
                         'Register',
                         style: TextStyle(
